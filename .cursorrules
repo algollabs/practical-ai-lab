@@ -1,0 +1,33 @@
+# Project Context: Practical AI Lab
+# A comprehensive, open-source, hands-on workshop teaching RAG and ReAct Agents using LlamaIndex.
+
+# Core Design Philosophy
+- **Educational Focus**: Code clarity is prioritized over brevity. Write code that is easy to read and understand.
+- **Zero-Magic**: Explicitly explain *what* is happening. Avoid "magic" wrappers where possible, or explain them if used.
+- **Framework First**: Use `llama-index` as the primary abstraction.
+
+# Technical Constraints & Standards
+- **Language**: Python 3.11+
+- **Dependency Manager**: `uv`
+- **LLM Interactions**: 
+    - MUST use LlamaIndex `Settings.llm` and `Settings.embed_model` abstractions.
+    - DO NOT use the raw `openai` client directly.
+    - Ensure model agnosticism (OpenAI vs Ollama).
+- **Vector Database**: Qdrant (via `qdrant-client`).
+- **UI**: Gradio (Lab 1), Rich/Typer (Lab 2).
+
+# Coding Conventions
+- **Comments**: Every major block (Retrieval, Loop, Tool definition) MUST have a comment explaining *why* it is implemented that way.
+- **Type Hinting**: Use standard Python type hints.
+- **Configuration**: All configuration (API keys, model names) must come from environment variables or a central settings module.
+
+# Repository Structure
+- `lab1_rag/`: RAG Workshop (Gradio + Qdrant)
+- `lab2_agents/`: ReAct Agent Workshop (CLI + Manual Loop)
+- `docs/`: Workshop guides and theory
+- `shared/`: Shared utilities
+
+# Specific Lab Guidelines
+- **Lab 1 (RAG)**: Implement "Smart Loading" (check existing collection before ingestion). Return source nodes for citations.
+- **Lab 2 (Agents)**: Use a Manual ReAct Loop (Reason -> Act -> Observe) for educational purposes alongside framework methods. Verbose CLI output is required.
+
