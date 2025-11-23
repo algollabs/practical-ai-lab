@@ -1,70 +1,62 @@
 # Algol Lab's Practical AI 🧪
 
-A comprehensive, hands-on workshop designed to teach mid-to-senior engineers the fundamentals of building AI applications using **LlamaIndex**, **Qdrant**, and **Python**.
+A comprehensive, hands-on workshop designed to teach mid-to-senior engineers the fundamentals of building AI applications.
 
-Built with ❤️ for the tech community by Zaid Amireh.
+**Theme:** "Practical AI Corp" — You will build internal tools for HR policies (RAG) and performance evaluations (Agents).
 
+## 📚 Workshop Content
 
-## Workshop Content
+### Lab 1: Company Policy Assistant (RAG)
+Build a Retrieval-Augmented Generation system to query internal PDF policies.
+- **Key Concepts:** Data Ingestion, Vector Stores (Qdrant), Chunking strategies, Citation handling.
+- **Stack:** LlamaIndex, Qdrant, Gradio.
+- [**Start Lab 1**](docs/LAB1_RAG.md)
 
-This repository contains two main labs:
+### Lab 2: Performance Review Assistant (ReAct Agents)
+Build an Agent that can read files, reason about goals, and act on them.
+- **Key Concepts:** The ReAct Loop (Reason -> Act -> Observe), Tool use, Function Calling.
+- **Stack:** LlamaIndex (Agent), Rich (CLI).
+- [**Start Lab 2**](docs/LAB2_AGENTS.md)
 
-1.  **Lab 1: Company Policy Assistant (RAG)**
-    *   Build a Retrieval-Augmented Generation system to query internal PDF policies.
-    *   **Stack:** LlamaIndex, Qdrant, Gradio.
-    *   **Key Concepts:** Data Ingestion, Vector Stores, Chunking, Citations.
-    *   [Go to Lab 1 Guide](docs/LAB1_RAG.md)
+## 📖 Documentation
 
-2.  **Lab 2: Performance Review Assistant (ReAct Agents)**
-    *   Build an Agent that can read files, reason about goals, and write OKR plans.
-    *   **Stack:** LlamaIndex (Agent), Rich (CLI).
-    *   **Key Concepts:** Tool Use, ReAct Loop (Reason -> Act -> Observe), Function Calling.
-    *   [Go to Lab 2 Guide](docs/LAB2_AGENTS.md)
+We believe in understanding *why*, not just *how*.
 
-## Getting Started
+- [**Core Theory**](docs/THEORY.md): Deep dive into LLMs, Embeddings, RAG, and Agents.
+- [**Setup Guide**](docs/SETUP.md): Detailed installation instructions (Python, Docker, uv).
+- [**Lab 1 Guide**](docs/LAB1_RAG.md): RAG implementation details.
+- [**Lab 2 Guide**](docs/LAB2_AGENTS.md): Agent implementation details.
 
-### Prerequisites
-- Python 3.11+
-- [uv](https://github.com/astral-sh/uv) (fast Python package manager)
-- Docker (for Qdrant)
+## ⚡ Quick Start
 
-### Setup
+For detailed prerequisites and troubleshooting, see the [Setup Guide](docs/SETUP.md).
 
-1.  **Clone the repo**
+1.  **Clone & Install**
     ```bash
-    git clone <repo-url>
+    git clone https://github.com/algollabs/practical-ai-lab.git
     cd practical-ai-lab
-    ```
-
-2.  **Install Dependencies**
-    ```bash
     uv sync
     ```
 
-3.  **Environment Setup**
+2.  **Configure**
     ```bash
     cp .env.example .env
-    # Edit .env and add your OPENAI_API_KEY
+    # Add your OpenAI API Key in .env
     ```
 
-4.  **Start Vector DB**
+3.  **Run Infrastructure**
     ```bash
     docker-compose up -d
     ```
 
-### Running the Labs
+4.  **Run Labs**
+    ```bash
+    # Lab 1 (RAG UI)
+    uv run python -m lab1_rag.app
 
-**Run Lab 1 (RAG UI):**
-```bash
-uv run python -m lab1_rag.app
-```
-*Access at http://localhost:7860*
+    # Lab 2 (Agent CLI)
+    uv run python -m lab2_agents.cli
+    ```
 
-**Run Lab 2 (Agent CLI):**
-```bash
-uv run python -m lab2_agents.cli
-```
-
-## Documentation
-See the `docs/` folder for detailed guides on theory and implementation details.
-
+---
+Built with ❤️ by Zaid Amireh for the tech community.
